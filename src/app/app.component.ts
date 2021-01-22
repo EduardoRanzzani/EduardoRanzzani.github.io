@@ -18,11 +18,11 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    console.log('Nothing to see here')
     this.listarTodos();
   }
 
   submit() {
-    console.log(this.form.value)
     const todo: Todo = { ...this.form.value }
     this.service
       .save(todo)
@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
   }
 
   delete(todo: Todo) {
-    console.log(todo.description + ' Excluído');
     this.service.deleteById(todo.id).subscribe({
       next: (response) => this.listarTodos()
     });
@@ -48,14 +47,11 @@ export class AppComponent implements OnInit {
       next: (todoAtualizado) => {
         todo.done = todoAtualizado.done;
         todo.doneDate = todoAtualizado.doneDate;
-
-        console.log(todoAtualizado)
       }
     });
   }
 
   update(todo: Todo) {
-    console.log(todo.description + ' Atualizado');
     this.service.update(todo).subscribe({
       next: (response) => this.listarTodos()
     });
