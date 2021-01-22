@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://todo-api-edu.herokuapp.com/api/todos'
+  apiUrl: 'https://todo-api-edu.herokuapp.com/api/todos'
 };
